@@ -36,8 +36,8 @@
 | Ch 3 | Program Structure | Pending | Updated best practices |
 | Ch 4 | Project Organization | Pending | Modern project patterns |
 | Ch 5 | Dependency Management | Pending | Recent module improvements |
-| Ch 6 | Variables/Constants | Pending | Built-ins: min, max, clear |
-| Ch 7 | Data Types | Pending | Generic type aliases, math/rand/v2 |
+| Ch 6 | Variables/Constants | ✅ Complete | Built-ins: min, max, clear |
+| Ch 7 | Data Types | ✅ Complete | Generic type aliases, math/rand/v2 |
 | Ch 8 | Program Flow | Pending | Range over functions, errors.Join |
 | Ch 9 | Digging Deeper | Pending | Iterator functions, PGO considerations |
 | Ch 10 | Concurrency | Pending | WaitGroup.Go, testing/synctest |
@@ -52,7 +52,8 @@
 - Feature research completed  
 - Integration strategy confirmed
 - Style analysis completed
-- Ready for chapter revision phase
+- **Chapter 6 revision completed** - Added Go 1.21+ built-in functions
+- **Chapter 7 revision completed** - Added Go 1.22+ generic type aliases and math/rand/v2
 
 **Author Writing Style Identified:**
 - Personal, humble, and encouraging tone
@@ -75,11 +76,26 @@
 - Integration strategy confirmed
 - Original content analyzed
 
-**Recommended Starting Point:**
-- Begin with Chapter 6 (Variables/Constants) for built-in functions
-- Or Chapter 7 (Data Types) for generic type aliases and math/rand/v2
-- Both offer clear integration opportunities for new Go features
+**Chapter 6 Revision Details:**
+- Added new section 6.6 "Built-in utility functions"
+- Covered min, max, and clear functions introduced in Go 1.21
+- Created 3 new examples with practical applications
+- Maintained author's conversational tone and teaching style
+- Integrated seamlessly with existing content flow
+
+**Chapter 7 Revision Details:**
+- Added subsection 7.5.2 "Generic type aliases" in custom types section
+- Added new section 7.7 "Modern standard library packages" with math/rand/v2 coverage
+- Integrated Go 1.24 generic type alias capabilities with practical examples
+- Covered math/rand/v2 improvements with migration guidance from original package
+- Created 5 new examples demonstrating real-world usage patterns
+- Maintained comprehensive coverage of all original data types content
+
+**Next Recommended Steps:**
+- Chapter 8 (Program Flow) for range over functions and errors.Join
+- Chapter 10 (Concurrency) for WaitGroup.Go and testing/synctest
+- Both offer excellent integration opportunities for remaining Go features
 
 ---
-**Last Updated**: Current session
-**Status**: Ready to begin chapter revisions
+**Last Updated**: Current session  
+**Status**: Chapters 6 & 7 complete, strong momentum established
