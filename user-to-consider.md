@@ -4,10 +4,10 @@
 
 ## 🎯 **High-Impact Features Requiring Dedicated Sections**
 
-### **Chapter 8 (Program Flow) - Ready for Integration**
-- **Range over functions** (Go 1.23) - Major paradigm shift for iteration
-- **errors.Join()** (Go 1.20) - Fundamental error handling improvement - added/done (chapter 9)
-- **Enhanced for-range semantics** - Cleaner iteration patterns
+### **Chapter 8 (Program Flow) - ✅ COMPLETED**
+- **Range over functions** (Go 1.23) - Major paradigm shift for iteration - ✅ DONE
+- **errors.Join()** (Go 1.20) - Fundamental error handling improvement - ✅ DONE (chapter 9)
+- **Enhanced for-range semantics** - Cleaner iteration patterns - ✅ DONE
 
 ### **Chapter 10/11 (Concurrency) - Significant Updates**
 - **WaitGroup.Go()** method - Simplified goroutine launching
@@ -39,20 +39,18 @@
 - **Memory optimization techniques**
 - **Build performance tools**
 
-### **Chapter 13: Modern Go Development** (Optional but Valuable)
-- **json/v2 package** considerations (when stable)
-- **WebAssembly (WASM)** improvements 
-- **Structured logging (slog)** package - Go 1.21
-- **Modern API patterns**
+### **Chapter 14: Modern Go Development** - ✅ COMPLETED
+- **json/v2 package** considerations (when stable) - ✅ DONE
+- **WebAssembly (WASM)** improvements - ✅ DONE
+- **Structured logging (slog)** package - Go 1.21 - ✅ DONE
+- **Modern API patterns** - ✅ DONE
 
 ## 🔍 **Still Needs Placement Decision**
 
-### **math/rand/v2** (Go 1.22) - HIGH PRIORITY
-Currently saved content that needs a home. Options:
-- **Chapter 8** (alongside other standard library updates)
-- **New "Standard Library Evolution" section**
-- **Chapter 12** (as part of performance improvements)
-- **Dedicated appendix** on Go 1.22+ standard library changes
+### **math/rand/v2** (Go 1.22) - ✅ COMPLETED
+- **Placed in Chapter 14** - Modern Go Development under "Evolving Standard Library" section
+- **Emphasizes backwards compatibility** - Versioned package approach as requested
+- **Comprehensive coverage** - API improvements, practical examples, migration guidance
 
 ## 📊 **Integration Complexity Assessment**
 

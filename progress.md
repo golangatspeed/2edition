@@ -38,13 +38,13 @@
 | Ch 5 | Dependency Management | Pending | Recent module improvements |
 | Ch 6 | Variables/Constants | ✅ Complete | Built-ins: min, max, clear |
 | Ch 7 | Data Types | ✅ Complete | Generic type aliases, math/rand/v2 |
-| Ch 8 | Program Flow | Pending | Range over functions (errors.Join moved to Ch 9) |
+| Ch 8 | Program Flow | ✅ Complete | Range over functions (Go 1.23), enhanced for-range semantics |
 | Ch 9 | Digging Deeper | ✅ Complete | Advanced topics + errors.Join() (Go 1.20) |
 | Ch 10a | Generics (NEW) | ✅ Complete | Dedicated generics chapter with type aliases |
 | Ch 10 | Concurrency | Pending | WaitGroup.Go, testing/synctest |
 | Ch 11 | Quality Assurance | Pending | Test attributes, enhanced testing |
 | Ch 12 | Performance (NEW) | Not Started | PGO, FlightRecorder, optimization |
-| Ch 13 | Modern Web (NEW) | Not Started | json/v2, WebAssembly, slog |
+| Ch 14 | Modern Go Development (NEW) | ✅ Complete | Evolving stdlib (math/rand/v2, json/v2), slog, WASM, modern patterns |
 
 ### 📝 Session Notes
 
@@ -107,14 +107,47 @@
 - ✅ **Perfect thematic fit** - Naturally extends existing error handling patterns
 - ✅ **Maintained style consistency** - Same mentoring tone and practical approach
 
+**Latest Session Completion:**
+- ✅ **Chapter 8 revision completed** - Added comprehensive range over functions (Go 1.23) coverage
+- ✅ **Enhanced for-range semantics** - Updated section 8.1.3.5 with Go 1.23 improvements
+- ✅ **New section 8.1.3.7** - Complete range over functions implementation with 4 detailed examples
+- ✅ **Maintained pedagogical flow** - Seamless integration of revolutionary iteration paradigm
+
+**Latest Session Completion:**
+- ✅ **Chapter 14 created** - "Modern Go Development" with comprehensive coverage of Go's evolution
+- ✅ **math/rand/v2 content integrated** - Placed in evolving standard library section as requested
+- ✅ **json/v2 coverage** - Forward-looking discussion of upcoming standard library evolution
+- ✅ **Structured logging (slog)** - Complete practical examples for modern logging practices
+- ✅ **WebAssembly improvements** - go:wasmexport directive and practical usage
+- ✅ **Modern API patterns** - Context-aware APIs and evolved options pattern
+- ✅ **Backwards compatibility emphasis** - Highlighted Go's versioned package approach
+
 **Next Session Action Items:**
-- ✅ **COMPLETED**: Chapter restructuring (Generics now Chapter 10a)
-- **NEW PRIORITY**: Chapter 8 (Program Flow) for range over functions (errors.Join completed in Ch 9)
-- **IMPORTANT**: Still need to place math/rand/v2 content somewhere appropriate
+- Continue with remaining chapter revisions (Chapters 2, 5, 10, 11)
 - Consider expanding Chapter 10a with more advanced generics topics
 - Continue with remaining chapter revisions (Chapters 2, 5, 8, 10, 11)
 - Plan new Chapters 12 & 13
 
 ---
+**Chapter 8 Revision Details:**
+- ✅ **Enhanced section 8.1.3.5** - Updated existing for-range coverage with Go 1.23 improvements
+- ✅ **New section 8.1.3.7** - "Range over Functions (Go 1.23)" with comprehensive coverage:
+  - Basic fibonacci iterator example demonstrating `func(func(T) bool)` pattern
+  - Early termination patterns with yield function control
+  - Practical filtered data iterator for real-world scenarios
+  - Two-value iteration with enumerate and batch processing examples
+- ✅ **Paradigm shift explanation** - Clear coverage of function-generated sequences vs data structures
+- ✅ **Best practices guidance** - When and how to use range over functions effectively
+- ✅ **Performance considerations** - Lazy evaluation and memory efficiency benefits
+- ✅ **Author's style maintained** - Mentoring tone with practical, stripped-down examples
+
 **Last Updated**: Current session  
-**Status**: Chapters 6, 7, 9, & 10a complete - excellent restructuring achieved!
+**Chapter 14 Creation Details:**
+- ✅ **Evolving standard library section** - math/rand/v2 and json/v2 with backwards compatibility emphasis
+- ✅ **Structured logging section** - Comprehensive slog package coverage with practical examples
+- ✅ **WebAssembly section** - Modern WASM features including go:wasmexport directive
+- ✅ **Modern API patterns** - Context-aware design and evolved options pattern
+- ✅ **Author's style maintained** - Personal learning narrative with practical, stripped-down examples
+- ✅ **Forward-looking perspective** - Positioned as cutting-edge chapter showcasing Go's evolution
+
+**Status**: Chapters 6, 7, 8, 9, 10a, & 14 complete - modern Go development comprehensively covered!
