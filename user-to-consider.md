@@ -33,11 +33,11 @@
 
 ## 🆕 **New Chapter Candidates**
 
-### **Chapter 12: Performance Optimization** (Strongly Recommended)
-- **Profile-Guided Optimization (PGO)** - Go 1.20+
-- **CPU profiling improvements** 
-- **Memory optimization techniques**
-- **Build performance tools**
+### **Chapter 12: Performance Optimization** - ✅ INTEGRATED INTO CHAPTER 11
+- **Profile-Guided Optimization (PGO)** - Go 1.20+ - ✅ DONE (Ch 11.5)
+- **CPU profiling improvements** - ✅ DONE (Ch 11.3-11.4)
+- **Memory optimization techniques** - ✅ DONE (Ch 11.4.1)
+- **Build performance tools** - ✅ DONE (Ch 11.5)
 
 ### **Chapter 14: Modern Go Development** - ✅ COMPLETED
 - **json/v2 package** considerations (when stable) - ✅ DONE
@@ -60,20 +60,24 @@
 - math/rand/v2 placement
 
 ### **🟡 Moderate Effort (2-3 sessions each):**
-- Chapter 10/11: Concurrency features
-- Chapter 11: Testing enhancements
+- Chapter 10: Concurrency features  
 - Chapter 5: Module improvements
 
 ### **🔴 Significant Investment (3-5 sessions):**
-- Chapter 12: Performance Optimization (new chapter)
-- Chapter 13: Modern Development (new chapter)
+- ~~Chapter 12: Performance Optimization~~ ✅ COMPLETED (integrated into Ch 11)
+- ~~Chapter 13: Modern Development~~ ✅ COMPLETED (now Ch 14)
 
 ## 🎯 **Recommended Next Session Priorities**
 
-1. **Complete the generics chapter split** (as discussed)
-2. **Chapter 8 integration** (range over functions + errors.Join)
-3. **Decide on math/rand/v2 placement**
-4. **Plan Chapter 12** structure and content
+1. ~~**Complete the generics chapter split**~~ ✅ COMPLETED (Chapter 10a)
+2. ~~**Chapter 8 integration**~~ ✅ COMPLETED (range over functions + enhanced for-range)
+3. ~~**math/rand/v2 placement**~~ ✅ COMPLETED (integrated into Chapter 14)
+4. ~~**Chapter 11/12 integration**~~ ✅ COMPLETED (performance topics merged into QA)
+
+**Remaining High-Priority Tasks:**
+- **Chapter 10: Concurrency** - WaitGroup.Go, testing/synctest, enhanced context
+- **Chapter 2: CLI Tools** - go build -pgo flags, tool directives, GOARM64
+- **Chapter 5: Dependency Management** - Module workspace enhancements
 
 ## 📝 **Strategic Considerations**
 
