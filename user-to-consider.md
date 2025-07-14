@@ -14,17 +14,20 @@
 - **testing/synctest** package - Race condition testing
 - **Enhanced context package** features
 
-### **Chapter 11 (Quality Assurance/Testing)**
-- **Test execution modes** and enhanced testing
-- **Benchmark improvements**
-- **Coverage tooling updates**
+### **Chapter 11 (Quality Assurance/Testing)** - ✅ COMPLETED
+- **Test execution modes** and enhanced testing - ✅ DONE (Test attributes, testing/synctest)
+- **Benchmark improvements** - ✅ DONE (Benchmark attributes, enhanced analysis)
+- **Coverage tooling updates** - ✅ DONE (Atomic mode, CI/CD integration, threshold enforcement)
+
+**⚠️ MINOR CLEANUP NEEDED:**
+- **Example numbering** - Final cleanup of duplicate numbers (99, 100) in Chapter 11
 
 ## 🔧 **Medium-Impact Features for Existing Chapters**
 
-### **Chapter 2 (CLI Tools)**
-- **go build -pgo** flags for Profile-Guided Optimization
-- **Tool directives** improvements
-- **GOARM64** and cross-compilation enhancements
+### **Chapter 2 (CLI Tools)** - ✅ COMPLETED
+- **go build -pgo** flags for Profile-Guided Optimization - ✅ DONE (Section 2.9.1)
+- **Tool directives** improvements - ✅ DONE (Section 2.11) 
+- **GOARM64** and cross-compilation enhancements - ✅ DONE (Section 2.10.1)
 
 ### **Chapter 5 (Dependency Management)**
 - **Module workspace** enhancements
@@ -55,9 +58,9 @@
 ## 📊 **Integration Complexity Assessment**
 
 ### **🟢 Easy Wins (1-2 sessions each):**
-- Chapter 8: Range over functions + errors.Join
-- Chapter 2: CLI tool updates
-- math/rand/v2 placement
+- ~~Chapter 8: Range over functions + errors.Join~~ ✅ COMPLETED
+- ~~Chapter 2: CLI tool updates~~ ✅ COMPLETED
+- ~~math/rand/v2 placement~~ ✅ COMPLETED
 
 ### **🟡 Moderate Effort (2-3 sessions each):**
 - Chapter 10: Concurrency features  
@@ -76,8 +79,12 @@
 
 **Remaining High-Priority Tasks:**
 - **Chapter 10: Concurrency** - WaitGroup.Go, testing/synctest, enhanced context
-- **Chapter 2: CLI Tools** - go build -pgo flags, tool directives, GOARM64
+- ~~**Chapter 2: CLI Tools** - go build -pgo flags, tool directives, GOARM64~~ ✅ COMPLETED
+- ~~**Chapter 3: Program Structure** - Project organization best practices~~ ✅ COMPLETED
+- ~~**Chapter 4: Project Organization** - internal/, pkg/ folder patterns~~ ✅ MERGED INTO CHAPTER 3
 - **Chapter 5: Dependency Management** - Module workspace enhancements
+
+**⚠️ STRUCTURAL CHANGE**: Chapter 4 has been merged into Chapter 3. All subsequent chapters will need renumbering.
 
 ## 📝 **Strategic Considerations**
 

@@ -31,10 +31,10 @@
 
 | Chapter | Original Topic | Status | New Features to Add |
 |---------|---------------|--------|-------------------|
-| Ch 1 | Introduction | Pending | Go 1.25 overview |
-| Ch 2 | CLI | Pending | Tool directives, GOARM64, PGO flags |
-| Ch 3 | Program Structure | Pending | Updated best practices |
-| Ch 4 | Project Organization | Pending | Modern project patterns |
+| Ch 1 | Introduction | ✅ Complete | Go 1.25 overview |
+| Ch 2 | CLI | ✅ Complete | Tool directives, GOARM64, PGO flags |
+| Ch 3 | Program Structure & Organization | ✅ Complete | Project patterns, internal/, pkg/ |
+| ~~Ch 4~~ | ~~Project Organization~~ | ✅ Merged into Ch 3 | Content integrated into Chapter 3 |
 | Ch 5 | Dependency Management | Pending | Recent module improvements |
 | Ch 6 | Variables/Constants | ✅ Complete | Built-ins: min, max, clear |
 | Ch 7 | Data Types | ✅ Complete | Generic type aliases, math/rand/v2 |
@@ -114,12 +114,14 @@
 - ✅ **Maintained pedagogical flow** - Seamless integration of revolutionary iteration paradigm
 
 **Latest Session Completion:**
-- ✅ **Preface revised** - Added AI collaboration hints while maintaining personal, authentic tone
-- ✅ **Learning journey emphasis** - Positioned second edition as continuation of author and reader learning
-- ✅ **Concise for advertising** - Kept length appropriate for promotional use
-- ✅ **Community learning theme** - Enhanced "we're all learning together" messaging
-- ✅ **"About this book" section rewritten** - Updated with comprehensive AI collaboration narrative
-- ✅ **Modern Go positioning** - Positioned book as guide for both newcomers and those catching up
+- ✅ **Chapter 11 fully enhanced** - Added all Go 1.20-1.25 testing, benchmarking, and coverage improvements
+- ✅ **Test attributes added** - Go 1.25 T.Attr, B.Attr, F.Attr methods with practical examples
+- ✅ **testing/synctest package** - Concurrent testing and race condition detection coverage
+- ✅ **Enhanced coverage tooling** - Atomic mode, CI/CD integration, threshold enforcement
+- ✅ **Benchmark attributes** - Modern benchmark categorization and metadata tracking
+- ✅ **About the Author revised** - Updated with Senior Technical Consultant role and AI collaboration
+- ✅ **Preface and About sections** - Complete narrative updates for second edition context
+- ⚠️ **Example numbering** - Needs final cleanup (duplicates: 99, 100) - saved for next session
 
 **Previous Major Completions:**
 - ✅ Chapter 11 comprehensively revised (QA + Performance)
@@ -162,4 +164,37 @@
 - ✅ **Measurement-driven philosophy** - "Measure first, optimize second, measure again"
 - ✅ **Production-ready guidance** - Real-world PGO integration and performance monitoring
 
-**Status**: Chapters 6, 7, 8, 9, 10a, 11, & 14 complete - comprehensive modern Go coverage achieved!
+**Status**: Chapters 1, 2, 3, 6, 7, 8, 9, 10a, 11, & 14 complete - Chapter 4 merged into Chapter 3!
+
+**⚠️ IMPORTANT**: Chapter removal requires reordering - all subsequent chapters will shift up by one number.
+
+**Chapter 1 Revision Details (Latest Session):**
+- ✅ **Chapter 1 revised** - Added Go 1.25 overview in section 1.1 while maintaining beginner-friendly fundamentals focus
+- ✅ **Style consistency maintained** - Preserved original conversational, teaching tone throughout
+- ✅ **Strategic positioning** - Introduction now properly sets context for Go's modern evolution
+- ✅ **Example preservation** - All 4 original examples maintained with proper Go Playground integration
+
+**Chapter 2 Revision Details (Latest Session):**
+- ✅ **Section 2.1 updated** - Version examples updated from go1.19 to go1.25
+- ✅ **Section 2.9.1 added** - Comprehensive PGO (Profile-Guided Optimization) coverage with practical examples
+- ✅ **Section 2.10.1 added** - Enhanced ARM64 support with GOARM64 variable and cross-compilation improvements
+- ✅ **Section 2.11 added** - Tool directives and build configuration with modern //go:build syntax
+- ✅ **8 new examples** - Succinct, practical code examples maintaining author's style
+- ✅ **Modern CLI coverage** - All Go 1.20-1.25 CLI improvements successfully integrated
+
+**Chapter 3 Revision Details (Latest Session):**
+- ✅ **Section 3.4 added** - Comprehensive project structure patterns documentation
+- ✅ **Simple vs Complex patterns** - Root main.go vs cmd/ folder approaches with clear guidance
+- ✅ **Choice and completeness** - Both patterns documented with practical examples and decision criteria
+- ✅ **Semantic improvements** - Updated import path examples to reflect modern module practices
+- ✅ **5 new examples** - Enhanced with practical project layout examples and code samples
+- ✅ **Style consistency** - Maintained original teaching tone while adding modern best practices
+
+**Chapter 3 Enhancement Details (Latest Session):**
+- ✅ **Chapter 4 content integrated** - Merged all unique Chapter 4 content into comprehensive Chapter 3
+- ✅ **Section 3.4.3 added** - Advanced folder patterns covering internal/ and pkg/ folders  
+- ✅ **internal/ folder mechanics** - Go tool access control, shared ancestor rules, external module restrictions
+- ✅ **pkg/ folder rationale** - Semantic organization, separation from non-Go folders, developer clarity
+- ✅ **Complete project structure** - Example 12 shows cmd/, internal/, pkg/ integration
+- ✅ **Chapter 4 eliminated** - No duplication, all valuable content preserved in Chapter 3
+- ⚠️ **Chapter reordering needed** - All subsequent chapters need renumbering

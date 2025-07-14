@@ -16,9 +16,7 @@
 
 *Working collaboratively with AI assistance - while reviewing and editing every word myself - I embarked on a systematic exploration of what was new. This approach proved remarkably effective for rediscovering Go's evolution and ensuring comprehensive coverage of modern features, from range over functions to Profile-Guided Optimization.*
 
-*Before you jump into the book itself, I want to thank you for purchasing it. I sincerely hope you enjoy it and get much value from it. I also hope you enjoy your journey with Go as much as I have my own, and that this book helps you navigate modern Go development faster!*
-
-*Finally, my learning journey continues, and I'm sharing what I've discovered because I believe it will help others. Whether you're new to Go or catching up with its recent evolution, we're all learning together. If you have any feedback or spot any mistakes, please do reach out - you'll help make this book better for everyone who follows!*
+*As always, if you have any feedback or spot any mistakes, please do reach out - you'll help make this book better for everyone who follows!*
 
 *Best wishes,*
 

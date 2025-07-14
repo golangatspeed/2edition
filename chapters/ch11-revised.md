@@ -90,6 +90,50 @@ go tool cover -html=coverage.out
 
 The HTML report is particularly useful - it shows exactly which lines are covered and which aren't.
 
+#### 11.1.3.1 Enhanced coverage tooling
+
+Recent Go versions have improved coverage tooling with better analysis and reporting capabilities. Go 1.20+ provides more detailed coverage information and better integration with CI/CD pipelines.
+
+```bash
+# Generate coverage with additional metadata
+go test -coverprofile=coverage.out -covermode=atomic
+
+# Coverage by package
+go test -cover ./...
+
+# Detailed coverage analysis with function-level granularity
+go test -coverprofile=coverage.out -coverpkg=./...
+go tool cover -func=coverage.out
+
+# Coverage threshold enforcement (useful for CI/CD)
+go tool cover -func=coverage.out | grep "total:" | awk '{print $3}' | sed 's/%//'
+```
+
+Modern coverage analysis also supports:
+- **Atomic coverage mode** for more accurate concurrent test coverage
+- **Package-level coverage** across multiple packages simultaneously  
+- **Function-level granularity** showing coverage per function
+- **CI/CD integration** with coverage threshold enforcement
+
+**Example coverage workflow:**
+```bash
+# Run tests with comprehensive coverage
+go test -race -coverprofile=coverage.out -covermode=atomic -coverpkg=./... ./...
+
+# Generate human-readable report
+go tool cover -func=coverage.out > coverage-summary.txt
+
+# Generate HTML report for detailed analysis
+go tool cover -html=coverage.out -o coverage.html
+
+# Check coverage threshold (fails if below 80%)
+COVERAGE=$(go tool cover -func=coverage.out | grep "total:" | awk '{print $3}' | sed 's/%//')
+if [ "${COVERAGE%.*}" -lt 80 ]; then
+    echo "Coverage ${COVERAGE}% is below threshold 80%"
+    exit 1
+fi
+```
+
 ### 11.1.4 Subtests and table-driven tests
 
 Table-driven testing is a Go idiom that makes testing multiple scenarios clean and maintainable.
@@ -164,11 +208,145 @@ func ExampleDivide() {
 
 Examples appear in package documentation and are verified during testing. The `// Output:` comment is compared against actual output.
 
+### 11.1.6 Test attributes and enhanced logging
+
+Go 1.25 introduced test attributes, which provide a structured way to add metadata and enhanced logging to your tests. The `T.Attr`, `B.Attr`, and `F.Attr` methods allow you to tag tests with key-value attributes that can be used for filtering, reporting, and analysis.
+
+**Example 92 - Using test attributes**
+```go
+package service_test
+
+import (
+    "testing"
+    "time"
+    "your-module/service"
+)
+
+func TestUserServiceCreate(t *testing.T) {
+    // Add attributes to categorize and track test metadata
+    t.Attr("component", "user-service")
+    t.Attr("category", "integration")
+    t.Attr("slow", "true")
+    
+    // Your test logic here
+    svc := service.NewUserService()
+    user, err := svc.CreateUser("alice@example.com")
+    
+    if err != nil {
+        t.Fatalf("CreateUser failed: %v", err)
+    }
+    
+    if user.Email != "alice@example.com" {
+        t.Errorf("Expected email alice@example.com, got %s", user.Email)
+    }
+}
+
+func TestUserServiceValidation(t *testing.T) {
+    t.Attr("component", "user-service")
+    t.Attr("category", "unit")
+    t.Attr("fast", "true")
+    
+    svc := service.NewUserService()
+    _, err := svc.CreateUser("invalid-email")
+    
+    if err == nil {
+        t.Error("Expected validation error for invalid email")
+    }
+}
+
+// Go Playground: https://go.dev/play/p/testAttributes
+```
+
+Test attributes are particularly useful for:
+- **Categorizing tests** by component, team, or test type
+- **Performance tracking** by marking slow vs fast tests
+- **CI/CD filtering** to run only relevant test subsets
+- **Test reporting** and analytics
+
+### 11.1.7 Concurrent testing with testing/synctest
+
+Go 1.25 stabilized the `testing/synctest` package, which provides powerful tools for testing concurrent code and detecting race conditions. This package makes it much easier to write reliable tests for goroutines and concurrent operations.
+
+**Example 93 - Testing concurrent operations**
+```go
+package concurrent_test
+
+import (
+    "sync"
+    "testing"
+    "testing/synctest"
+    "time"
+)
+
+func TestConcurrentCounter(t *testing.T) {
+    synctest.Run(func() {
+        var counter int
+        var mu sync.Mutex
+        var wg sync.WaitGroup
+        
+        // Simulate concurrent increments
+        for i := 0; i < 10; i++ {
+            wg.Add(1)
+            go func() {
+                defer wg.Done()
+                mu.Lock()
+                counter++
+                mu.Unlock()
+            }()
+        }
+        
+        wg.Wait()
+        
+        if counter != 10 {
+            t.Errorf("Expected counter = 10, got %d", counter)
+        }
+    })
+}
+
+func TestChannelCommunication(t *testing.T) {
+    synctest.Run(func() {
+        ch := make(chan int, 3)
+        
+        go func() {
+            for i := 1; i <= 3; i++ {
+                ch <- i
+                time.Sleep(10 * time.Millisecond)
+            }
+            close(ch)
+        }()
+        
+        var results []int
+        for val := range ch {
+            results = append(results, val)
+        }
+        
+        expected := []int{1, 2, 3}
+        if len(results) != len(expected) {
+            t.Fatalf("Expected %d results, got %d", len(expected), len(results))
+        }
+        
+        for i, v := range results {
+            if v != expected[i] {
+                t.Errorf("Expected results[%d] = %d, got %d", i, expected[i], v)
+            }
+        }
+    })
+}
+
+// Go Playground: https://go.dev/play/p/testingSynctest
+```
+
+The `testing/synctest` package provides:
+- **Deterministic scheduling** for concurrent operations
+- **Race condition detection** without external tools
+- **Controlled timing** for time-sensitive tests
+- **Reproducible test results** for concurrent code
+
 ## 11.2 Benchmarking
 
 Benchmarking helps establish performance baselines and identify regressions. It's particularly valuable when optimizing code - you need to measure before and after to know if changes actually improve performance.
 
-**Example 92 - Basic benchmark function**
+**Example 94 - Basic benchmark function**
 ```go
 package calculator_test
 
@@ -202,7 +380,53 @@ go test -bench=. -benchtime=10s
 
 Benchmark functions must begin with `Benchmark` and accept `*testing.B`. The critical element is the `b.N` loop - the testing framework adjusts N to get reliable measurements.
 
-**Example 93 - Comparing algorithm performance**
+### 11.2.1 Enhanced benchmark attributes
+
+Go 1.25 brought test attributes to benchmarks as well, allowing you to categorize and track benchmark metadata for better performance analysis.
+
+**Example 95 - Benchmarks with attributes**
+```go
+package algorithms_test
+
+import (
+    "testing"
+    "your-module/algorithms"
+)
+
+func BenchmarkQuickSort(b *testing.B) {
+    b.Attr("algorithm", "quicksort")
+    b.Attr("complexity", "O(n log n)")
+    b.Attr("category", "sorting")
+    
+    data := generateTestData(1000)
+    b.ResetTimer()
+    
+    for i := 0; i < b.N; i++ {
+        dataCopy := make([]int, len(data))
+        copy(dataCopy, data)
+        algorithms.QuickSort(dataCopy)
+    }
+}
+
+func BenchmarkBubbleSort(b *testing.B) {
+    b.Attr("algorithm", "bubblesort")
+    b.Attr("complexity", "O(n²)")
+    b.Attr("category", "sorting")
+    
+    data := generateTestData(100) // Smaller dataset for O(n²) algorithm
+    b.ResetTimer()
+    
+    for i := 0; i < b.N; i++ {
+        dataCopy := make([]int, len(data))
+        copy(dataCopy, data)
+        algorithms.BubbleSort(dataCopy)
+    }
+}
+
+// Go Playground: https://go.dev/play/p/benchmarkAttributes
+```
+
+**Example 96 - Comparing algorithm performance**
 ```go
 package search_test
 
@@ -266,7 +490,7 @@ This generates profile files you can analyze with `go tool pprof`.
 
 For production applications, you can add profiling endpoints:
 
-**Example 94 - HTTP profiling endpoints**
+**Example 97 - HTTP profiling endpoints**
 ```go
 package main
 
@@ -306,7 +530,7 @@ func main() {
 
 For command-line tools, you can add profiling directly:
 
-**Example 95 - Manual CPU profiling**
+**Example 98 - Manual CPU profiling**
 ```go
 package main
 
@@ -373,7 +597,7 @@ Now that we can measure performance, let's look at common optimization technique
 
 Memory efficiency often improves overall performance by reducing garbage collection pressure.
 
-**Example 96 - Reducing allocations**
+**Example 99 - Reducing allocations**
 ```go
 package main
 
@@ -435,7 +659,7 @@ Key memory optimization techniques:
 
 CPU optimization focuses on reducing computational complexity and improving cache efficiency.
 
-**Example 97 - Loop optimization and bounds checking**
+**Example 100 - Loop optimization and bounds checking**
 ```go
 package main
 
@@ -485,7 +709,7 @@ func BenchmarkSumEfficient(b *testing.B) {
 
 Go's goroutines make concurrent processing accessible, but coordination overhead can impact performance.
 
-**Example 98 - Optimizing goroutine usage**
+**Example 101 - Optimizing goroutine usage**
 ```go
 package main
 
