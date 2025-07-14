@@ -794,7 +794,7 @@ The process is straightforward:
 3. Place the profile in your source directory
 4. Rebuild with PGO enabled
 
-**Example 99 - Setting up PGO**
+**Example 102 - Setting up PGO**
 ```go
 package main
 
@@ -857,7 +857,7 @@ go build -o app-auto .
 
 Always measure the impact of PGO on your specific workload:
 
-**Example 100 - Benchmarking PGO improvements**
+**Example 103 - Benchmarking PGO improvements**
 ```go
 package main
 
